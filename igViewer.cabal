@@ -1,0 +1,173 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.33.0.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: 3c55cabeaa892fabbe058f156500137338f018fe3ac5dd59db545c09693f7e6a
+
+name:           igViewer
+version:        0.1.0.0
+description:    Please see the README on GitHub at <https://github.com/stuartwalker50/igviewer#readme>
+homepage:       https://github.com/stuartwalker50/igviewer#readme
+bug-reports:    https://github.com/stuartwalker50/igviewer/issues
+author:         Stuart Walker
+maintainer:     Stuart Walker
+copyright:      2020 Stuart Walker
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+    ChangeLog.md
+
+source-repository head
+  type: git
+  location: https://github.com/stuartwalker50/igviewer
+
+library
+  exposed-modules:
+      Broker
+      Database
+      IG
+      IG.REST
+      IG.REST.Accounts
+      IG.REST.Accounts.Types
+      IG.REST.Dealing
+      IG.REST.Dealing.Types
+      IG.REST.Login
+      IG.REST.Markets
+      IG.REST.Markets.Types
+      Lib
+      OHLC
+      Prelude
+      Realtime
+      Security
+      Settings
+      Tui
+  other-modules:
+      Paths_igViewer
+  hs-source-dirs:
+      src
+  default-extensions: BangPatterns BinaryLiterals ConstraintKinds DataKinds DefaultSignatures DeriveDataTypeable DeriveFoldable DeriveFunctor DeriveGeneric DeriveTraversable DoAndIfThenElse EmptyDataDecls ExistentialQuantification FlexibleContexts FlexibleInstances FunctionalDependencies GADTs GeneralizedNewtypeDeriving InstanceSigs KindSignatures LambdaCase MultiParamTypeClasses MultiWayIf NamedFieldPuns NoImplicitPrelude OverloadedStrings PartialTypeSignatures PatternGuards PolyKinds RankNTypes RecordWildCards ScopedTypeVariables StandaloneDeriving TupleSections TypeFamilies TypeSynonymInstances ViewPatterns
+  build-depends:
+      aeson
+    , ansi-wl-pprint
+    , async
+    , base-noprelude
+    , brick
+    , bytestring
+    , containers
+    , direct-sqlite
+    , flow
+    , fmt
+    , hourglass
+    , http-client-tls
+    , lens-aeson
+    , microlens
+    , microlens-th
+    , optparse-applicative
+    , postgresql-simple
+    , pretty-simple
+    , relude
+    , retry
+    , scientific
+    , stm
+    , string-conversions
+    , text
+    , time
+    , tmapmvar
+    , unordered-containers
+    , vty
+    , wreq
+    , zeromq4-haskell
+  default-language: Haskell2010
+
+executable igviewer-exe
+  main-is: Main.hs
+  other-modules:
+      Paths_igViewer
+  hs-source-dirs:
+      app
+  default-extensions: BangPatterns BinaryLiterals ConstraintKinds DataKinds DefaultSignatures DeriveDataTypeable DeriveFoldable DeriveFunctor DeriveGeneric DeriveTraversable DoAndIfThenElse EmptyDataDecls ExistentialQuantification FlexibleContexts FlexibleInstances FunctionalDependencies GADTs GeneralizedNewtypeDeriving InstanceSigs KindSignatures LambdaCase MultiParamTypeClasses MultiWayIf NamedFieldPuns NoImplicitPrelude OverloadedStrings PartialTypeSignatures PatternGuards PolyKinds RankNTypes RecordWildCards ScopedTypeVariables StandaloneDeriving TupleSections TypeFamilies TypeSynonymInstances ViewPatterns
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N -feager-blackholing -O2 -j -fprof-auto -funbox-strict-fields -Wall
+  build-depends:
+      aeson
+    , ansi-wl-pprint
+    , async
+    , base-noprelude
+    , brick
+    , bytestring
+    , containers
+    , direct-sqlite
+    , flow
+    , fmt
+    , hourglass
+    , http-client-tls
+    , igViewer
+    , lens-aeson
+    , microlens
+    , microlens-th
+    , optparse-applicative
+    , postgresql-simple
+    , pretty-simple
+    , relude
+    , retry
+    , scientific
+    , stm
+    , string-conversions
+    , tasty
+    , tasty-hunit
+    , text
+    , time
+    , tmapmvar
+    , unordered-containers
+    , vty
+    , wreq
+    , zeromq4-haskell
+  default-language: Haskell2010
+
+test-suite igviewer-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Paths_igViewer
+  hs-source-dirs:
+      test
+  default-extensions: BangPatterns BinaryLiterals ConstraintKinds DataKinds DefaultSignatures DeriveDataTypeable DeriveFoldable DeriveFunctor DeriveGeneric DeriveTraversable DoAndIfThenElse EmptyDataDecls ExistentialQuantification FlexibleContexts FlexibleInstances FunctionalDependencies GADTs GeneralizedNewtypeDeriving InstanceSigs KindSignatures LambdaCase MultiParamTypeClasses MultiWayIf NamedFieldPuns NoImplicitPrelude OverloadedStrings PartialTypeSignatures PatternGuards PolyKinds RankNTypes RecordWildCards ScopedTypeVariables StandaloneDeriving TupleSections TypeFamilies TypeSynonymInstances ViewPatterns
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      aeson
+    , ansi-wl-pprint
+    , async
+    , base-noprelude
+    , brick
+    , bytestring
+    , containers
+    , direct-sqlite
+    , flow
+    , fmt
+    , hourglass
+    , http-client-tls
+    , igViewer
+    , lens-aeson
+    , microlens
+    , microlens-th
+    , optparse-applicative
+    , postgresql-simple
+    , pretty-simple
+    , relude
+    , retry
+    , scientific
+    , stm
+    , string-conversions
+    , tasty
+    , tasty-hunit
+    , text
+    , time
+    , tmapmvar
+    , unordered-containers
+    , vty
+    , wreq
+    , zeromq4-haskell
+  default-language: Haskell2010

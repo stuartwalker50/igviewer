@@ -1,0 +1,13 @@
+cradle:
+  cabal:
+    - path: "src"
+      component: "lib:igViewer"
+
+    - path: "app/Main.hs"
+      component: "igViewer:exe:igViewer-exe"
+
+    - path: "app/Paths_igViewer.hs"
+      component: "igViewer:exe:igViewer-exe"
+
+    - path: "test"
+      component: "igViewer:test:igViewer-test"

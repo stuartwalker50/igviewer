@@ -1,0 +1,7 @@
+
+[
+    { "ssID" : "L1:IX.D.NASDAQ.IFS.IP"  , "ssLongSize"  : 0.0 , "ssLongOpenLevel" : 0 , "ssLongCloseLevel" : 0 , "ssShortSize" : 0.0 , "ssShortOpenLevel" : 0 , "ssShortCloseLevel" : 0 , "ssMaxLevelLong" : 0, "ssMaxLevelShort" : 0},
+    { "ssID" : "L1:CS.D.EURUSD.MINI.IP" , "ssLongSize"  : 0   , "ssLongOpenLevel" : 0 , "ssLongCloseLevel" : 0 , "ssShortSize" : 0.0 , "ssShortOpenLevel" : 0 , "ssShortCloseLevel" : 0 , "ssMaxLevelLong" : 0, "ssMaxLevelShort" : 0},
+    { "ssID" : "L1:CS.D.EURGBP.MINI.IP" , "ssLongSize"  : 0   , "ssLongOpenLevel" : 0 , "ssLongCloseLevel" : 0 , "ssShortSize" : 0.0 , "ssShortOpenLevel" : 0 , "ssShortCloseLevel" : 0 , "ssMaxLevelLong" : 0, "ssMaxLevelShort" : 0},
+    { "ssID" : "L1:CS.D.USDJPY.MINI.IP" , "ssLongSize"  : 0   , "ssLongOpenLevel" : 0 , "ssLongCloseLevel" : 0 , "ssShortSize" : 0   , "ssShortOpenLevel" : 0 , "ssShortCloseLevel" : 0 , "ssMaxLevelLong" : 0, "ssMaxLevelShort" : 0}
+]

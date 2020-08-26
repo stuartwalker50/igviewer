@@ -1,0 +1,134 @@
+name:                igViewer
+version:             0.1.0.0
+github:              "stuartwalker50/igviewer"
+license:             BSD3
+author:              "Stuart Walker"
+copyright:           "2020 Stuart Walker"
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Web
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on GitHub at <https://github.com/stuartwalker50/igviewer#readme>
+
+dependencies:
+# - base >= 4.7 && < 5
+- base-noprelude
+- relude
+- containers
+- ansi-wl-pprint
+- direct-sqlite
+- pretty-simple
+- text
+- stm
+- time
+- hourglass
+- tmapmvar
+- optparse-applicative
+- async
+- zeromq4-haskell
+- bytestring
+- postgresql-simple      #--
+- aeson                  #required for IG library
+- unordered-containers   #required for IG library
+- wreq                   #required for IG library
+- flow                   #required for IG library
+- microlens              #required for IG library  (chosen instead of full-blown lens)
+- http-client-tls        #required for IG library
+- string-conversions     #required for IG library
+- scientific             #required for IG library
+- lens-aeson             #required for IG library
+- retry
+# - tz   #loads a time-zone database
+# - array
+- fmt   #better formatting
+- brick
+- microlens-th 
+- vty
+
+
+# Language extensions taken from https://github.com/commercialhaskell/rio#readme
+default-extensions:
+# - AutoDeriveTypeable  #done sinece GHC 8.2
+- BangPatterns
+- BinaryLiterals
+- ConstraintKinds
+- DataKinds
+- DefaultSignatures
+- DeriveDataTypeable
+- DeriveFoldable
+- DeriveFunctor
+- DeriveGeneric
+- DeriveTraversable
+- DoAndIfThenElse
+- EmptyDataDecls
+- ExistentialQuantification
+- FlexibleContexts
+- FlexibleInstances
+- FunctionalDependencies
+- GADTs
+- GeneralizedNewtypeDeriving
+- InstanceSigs
+- KindSignatures
+- LambdaCase
+# - MonadFailDesugaring  #now default behaviour
+- MultiParamTypeClasses
+- MultiWayIf
+- NamedFieldPuns
+- NoImplicitPrelude
+- OverloadedStrings
+- PartialTypeSignatures
+- PatternGuards
+- PolyKinds
+- RankNTypes
+- RecordWildCards
+- ScopedTypeVariables
+- StandaloneDeriving
+- TupleSections
+- TypeFamilies
+- TypeSynonymInstances
+- ViewPatterns
+
+library:
+  source-dirs: src
+
+executables:
+  igviewer-exe:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    # - -with-rtsopts=-N8
+    - -feager-blackholing  #gives a marginal speedup, 7s on a 4m37s execution time
+    - -O2
+    # - -fllvm
+    - -j     #Perform compilation in parallel when possible.  This seems to speed up exection and stop it running out of memory for backtests
+    - -fprof-auto  #this tells the compiler to look more closely at libraries, I think only when linking (gives minor speed up)
+    - -funbox-strict-fields  #Keep this in - it's worth about a 17s reduction on a 4m52s run
+    - -Wall
+    dependencies:
+    - igViewer
+    - tasty        #needed to keep ghcide happy
+    - tasty-hunit  #needed to keep ghcide happy
+
+tests:
+  igviewer-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - igViewer
+    - tasty
+    - tasty-hunit

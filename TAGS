@@ -1,0 +1,1058 @@
+
+./src/StockData.hs,137
+module StockData StockData0,1
+teslaMids teslaMids8,9
+teslaChartClose teslaChartClose274,275
+teslaChartOHLC teslaChartOHLC541,542
+
+./src/Realtime.hs,684
+module Realtime Realtime0,1
+newMVarByteString newMVarByteString36,37
+demoOrLive demoOrLive39,40
+runRealtime runRealtime45,46
+initProcessPrices initProcessPrices66,67
+loadBackdata loadBackdata115,116
+processPrices processPrices153,154
+processPrices processPrices163,164
+updatePaperTrade updatePaperTrade197,198
+makeTrade makeTrade210,211
+prepareAndPlaceTrade prepareAndPlaceTrade261,262
+getRealPosnFromBroker getRealPosnFromBroker269,270
+pick1stRP pick1stRP287,288
+changeInPaperTrade changeInPaperTrade297,298
+convertTextToTickField convertTextToTickField308,309
+updateRealPosnMap updateRealPosnMap321,322
+getRealPosnFromMap getRealPosnFromMap325,326
+
+./src/Database.hs,892
+module Database Database3,4
+quickTick quickTick43,44
+receiveTickList receiveTickList75,76
+shortenTickListOnBlockSize shortenTickListOnBlockSize83,84
+removeConsecutiveTicksWithinBlockSize removeConsecutiveTicksWithinBlockSize92,93
+putColsIntoChart putColsIntoChart115,116
+buildChart buildChart119,120
+prepareChartFromTicks prepareChartFromTicks126,127
+iterateAndAnalyseChart iterateAndAnalyseChart134,135
+analyseChartFromTicks analyseChartFromTicks144,145
+analyseSignalsFromTicks analyseSignalsFromTicks154,155
+buildChartAndSignals buildChartAndSignals173,174
+removeNoSignals removeNoSignals185,186
+removeDuplicateSignals removeDuplicateSignals188,189
+removeDuplicateSignals2 removeDuplicateSignals2197,198
+updateSignalListMap updateSignalListMap207,208
+checkForPFSignal checkForPFSignal238,239
+getChart getChart243,244
+getSignalList getSignalList246,247
+
+./src/IG/REST/Accounts/Types.hs,1752
+module IG.REST.Accounts.Types IG.REST.Accounts.Types3,4
+data Account Account12,13
+data Account = Account Account12,13
+data Account = Account { accountAlias accountAlias12,13
+                       , accountId accountId13,14
+                       , accountName accountName14,15
+                       , accountType accountType15,16
+                       , balance balance16,17
+                       , canTransferFrom canTransferFrom17,18
+                       , canTransferTo canTransferTo18,19
+                       , currency currency19,20
+                       , preferred preferred20,21
+                       , status status21,22
+instance ToJSON ToJSON Account24,25
+instance FromJSON FromJSON Account26,27
+data AccountType AccountType29,30
+data AccountType = CFDCFD29,30
+                 | PHYSICALPHYSICAL30,31
+                 | SPREADBETSPREADBET31,32
+instance ToJSON ToJSON AccountType34,35
+instance FromJSON FromJSON AccountType36,37
+data AccountBalances AccountBalances39,40
+data AccountBalances = AccountBalances AccountBalances39,40
+data AccountBalances = AccountBalances { available available39,40
+                                       , balance balance40,41
+                                       , deposit deposit41,42
+                                       , profitLoss profitLoss42,43
+instance FromJSON FromJSON AccountBalances45,46
+instance ToJSON ToJSON AccountBalances47,48
+data AccountStatus AccountStatus50,51
+data AccountStatus = DISABLEDDISABLED50,51
+                   | ENABLEDENABLED51,52
+                   | SUSPENDED_FROM_DEALINGSUSPENDED_FROM_DEALING52,53
+instance FromJSON FromJSON AccountStatus55,56
+instance ToJSON ToJSON AccountStatus57,58
+
+./src/IG/REST/Login.hs,4606
+module IG.REST.Login IG.REST.Login3,4
+data Credentials Credentials26,27
+data Credentials = Credentials Credentials26,27
+data Credentials = Credentials { demo demo26,27
+                               , production production27,28
+instance FromJSON FromJSON Credentials31,32
+data Credential Credential34,35
+data Credential = Credential Credential34,35
+data Credential = Credential { apiKey apiKey34,35
+                  , username username35,36
+                  , pass pass36,37
+instance FromJSON FromJSON Credential39,40
+loginToApi loginToApi42,43
+getCredentials getCredentials49,50
+getKey getKey61,62
+data LoginResponse LoginResponse66,67
+data LoginResponse = LoginResponse LoginResponse66,67
+                                     accountInfo accountInfo68,69
+                                   , accountType accountType70,71
+                                   , accounts accounts72,73
+                                   , clientId clientId74,75
+                                   , currentAccountId currentAccountId76,77
+                                   , currencyIsoCode currencyIsoCode78,79
+                                   , currencySymbol currencySymbol80,81
+                                   , dealingEnabled dealingEnabled82,83
+                                   , hasActiveDemoAccounts hasActiveDemoAccounts84,85
+                                   , hasActiveLiveAccounts hasActiveLiveAccounts86,87
+                                   , lightstreamerEndpoint lightstreamerEndpoint88,89
+                                   , reroutingEnvironment reroutingEnvironment90,91
+                                   , timezoneOffset timezoneOffset92,93
+                                   , trailingStopsEnabled trailingStopsEnabled94,95
+instance FromJSON FromJSON LoginResponse97,98
+data AccountInfo AccountInfo101,102
+data AccountInfo = AccountInfo AccountInfo101,102
+                                 available available103,104
+                               , balance balance105,106
+                               , deposit deposit107,108
+                               , profitLoss profitLoss109,110
+instance FromJSON FromJSON AccountInfo113,114
+data AccountType AccountType116,117
+data AccountType = CFDCFD116,117
+                 | PHYSICALPHYSICAL117,118
+                 | SPREADBETSPREADBET118,119
+instance FromJSON FromJSON AccountType122,123
+data AccountDetails AccountDetails126,127
+data AccountDetails = AccountDetails AccountDetails126,127
+                                       accountId accountId128,129
+                                     , accountName accountName130,131
+                                     , accountType' accountType'132,133
+                                     , preferred preferred134,135
+instance FromJSON FromJSON AccountDetails137,138
+  parseJSON parseJSON139,140
+data ReroutingEnvironment ReroutingEnvironment148,149
+data ReroutingEnvironment = DEMODEMO148,149
+                          | LIVELIVE149,150
+                          | TESTTEST150,151
+                          | UATUAT151,152
+instance FromJSON FromJSON ReroutingEnvironment154,155
+data LoginBody LoginBody157,158
+data LoginBody = LoginBody LoginBody157,158
+                             encryptedPassword encryptedPassword159,160
+                           , identifier identifier161,162
+                           , password password163,164
+instance ToJSON ToJSON LoginBody166,167
+restPath restPath168,169
+login login172,173
+loginOptions loginOptions200,201
+getSecurityHeaders getSecurityHeaders204,205
+logout logout211,212
+data SessionDetails SessionDetails224,225
+data SessionDetails = SessionDetails SessionDetails224,225
+data SessionDetails = SessionDetails { clientId' clientId'224,225
+                                     , accountId' accountId'225,226
+                                     , timezoneOffset' timezoneOffset'226,227
+                                     , locale' locale'227,228
+                                     , currency' currency'228,229
+                                     , lightstreamerEndpoint' lightstreamerEndpoint'229,230
+instance FromJSON FromJSON SessionDetails233,234
+  parseJSON parseJSON235,236
+sessionDetails sessionDetails246,247
+data SwitchAccountData SwitchAccountData261,262
+data SwitchAccountData = SwitchAccountData SwitchAccountData261,262
+instance ToJSON ToJSON SwitchAccountData263,264
+  toJSON toJSON264,265
+switchAccount switchAccount272,273
+accountsPath accountsPath282,283
+
+./src/IG/REST/Markets.hs,205
+module IG.REST.Markets IG.REST.Markets4,5
+marketUrl marketUrl21,22
+navigateMarkets navigateMarkets26,27
+markets markets39,40
+market market57,58
+historicalData historicalData64,65
+(-(-?)75,76
+
+./src/IG/REST/Dealing.hs,557
+module IG.REST.Dealing IG.REST.Dealing3,4
+confirms confirms20,21
+allPositions allPositions30,31
+positionDetails positionDetails39,40
+otcPath otcPath46,47
+closePosition closePosition50,51
+toClosePositionRequest toClosePositionRequest63,64
+createPosition createPosition83,84
+updatePosition updatePosition90,91
+getWorkingOrders getWorkingOrders98,99
+otcWorkingOrderPath otcWorkingOrderPath105,106
+createWorkingOrder createWorkingOrder112,113
+deleteWorkingOrder deleteWorkingOrder120,121
+updateWorkingOrder updateWorkingOrder128,129
+
+./src/IG/REST/Markets/Types.hs,12281
+module IG.REST.Markets.Types IG.REST.Markets.Types4,5
+data MarketData MarketData17,18
+data MarketData = MarketData MarketData17,18
+data MarketData = MarketData { nodes nodes17,18
+                             , markets markets18,19
+instance FromJSON FromJSON MarketData22,23
+data Node Node25,26
+data Node = Node Node25,26
+data Node = Node { id id25,26
+                 , name name26,27
+instance FromJSON FromJSON Node30,31
+data Market Market33,34
+data Market = Market Market33,34
+data Market = Market { delayTime delayTime33,34
+                     , bid bid34,35
+                     , epic epic35,36
+                     , expiry expiry36,37
+                     , high high37,38
+                     , instrumentName instrumentName38,39
+                     , instrumentType instrumentType39,40
+                     , lotSize lotSize40,41
+                     , low low41,42
+                     , marketStatus marketStatus42,43
+                     , netChange netChange43,44
+                     , offer offer44,45
+                     , otcTradeable otcTradeable45,46
+                     , percentageChange percentageChange46,47
+                     , scalingFactor scalingFactor47,48
+                     , streamingPricesAvailable streamingPricesAvailable48,49
+                     , updateTimeUTC updateTimeUTC49,50
+instance FromJSON FromJSON Market53,54
+data MarketStatus MarketStatus56,57
+data MarketStatus = CLOSEDCLOSED56,57
+                  | EDITS_ONLYEDITS_ONLY57,58
+                  | OFFLINEOFFLINE58,59
+                  | ON_AUCTIONON_AUCTION59,60
+                  | ON_AUCTION_NO_EDITSON_AUCTION_NO_EDITS60,61
+                  | SUSPENDEDSUSPENDED61,62
+                  | TRADEABLETRADEABLE62,63
+instance FromJSON FromJSON MarketStatus66,67
+data MarketDetails MarketDetails70,71
+data MarketDetails = MarketDetails MarketDetails70,71
+data MarketDetails = MarketDetails { dealingRules dealingRules70,71
+                                   , instrument instrument71,72
+                                   , snapshot snapshot72,73
+instance FromJSON FromJSON MarketDetails75,76
+data DealingRules DealingRules79,80
+data DealingRules = DealingRules DealingRules79,80
+data DealingRules = DealingRules { marketOrderPreference marketOrderPreference79,80
+                                 , maxStopOrLimitDistance maxStopOrLimitDistance80,81
+                                 , minControlledRiskStopDistance minControlledRiskStopDistance81,82
+                                 , minDealSize minDealSize82,83
+                                 , minNormalStopOrLimitDistance minNormalStopOrLimitDistance83,84
+                                 , minStepDistance minStepDistance84,85
+                                 , trailingStopsPreference trailingStopsPreference85,86
+instance FromJSON FromJSON DealingRules89,90
+data Instrument Instrument93,94
+data Instrument = Instrument Instrument93,94
+data Instrument = Instrument { chartCode chartCode93,94
+                             , contractSize contractSize94,95
+                             , controlledRiskAllowed controlledRiskAllowed95,96
+                             , country country96,97
+                             , currencies currencies97,98
+                             , epic epic98,99
+                             , expiry expiry99,100
+                             , expiryDetails expiryDetails100,101
+                             , forceOpenAllowed forceOpenAllowed101,102
+                             , limitedRiskPremium limitedRiskPremium102,103
+                             , lotSize lotSize103,104
+                             , marginDepositBands marginDepositBands104,105
+                             , marginFactor marginFactor105,106
+                             , marginFactorUnit marginFactorUnit106,107
+                             , marketId marketId107,108
+                             , name name108,109
+                             , newsCode newsCode109,110
+                             , onePipMeans onePipMeans110,111
+                             , openingHours openingHours111,112
+                             , rolloverDetails rolloverDetails112,113
+                             , slippageFactor slippageFactor113,114
+                             , specialInfo specialInfo114,115
+                             , sprintMarketsMaximumExpiryTime sprintMarketsMaximumExpiryTime115,116
+                             , sprintMarketsMinimumExpiryTime sprintMarketsMinimumExpiryTime116,117
+                             , stopsLimitAllowed stopsLimitAllowed117,118
+                             , streamingPricesAvailable streamingPricesAvailable118,119
+                             , instrumentType instrumentType119,120
+                             , unit unit120,121
+                             , valueOfOnePip valueOfOnePip121,122
+instance FromJSON FromJSON Instrument125,126
+  parseJSON parseJSON127,128
+data SnapShot SnapShot160,161
+data SnapShot = SnapShot{ SnapShot{160,161
+data SnapShot = SnapShot{ bid bid160,161
+                        , binaryOdds binaryOdds161,162
+                        , controlledRiskExtraSpread controlledRiskExtraSpread162,163
+                        , decimalPlacesFactor decimalPlacesFactor163,164
+                        , delayTime delayTime164,165
+                        , high high165,166
+                        , low low166,167
+                        , marketStatus marketStatus167,168
+                        , netChange netChange168,169
+                        , offer offer169,170
+                        , percentageChange percentageChange170,171
+                        , scalingFactor scalingFactor171,172
+                        , updateTime updateTime172,173
+instance FromJSON FromJSON SnapShot176,177
+data TradeUnit TradeUnit179,180
+data TradeUnit = AMOUNTAMOUNT179,180
+               | CONTRACTCONTRACT180,181
+               | SHARESSHARES181,182
+instance FromJSON FromJSON TradeUnit185,186
+data SlippageFactor SlippageFactor187,188
+data SlippageFactor = SlippageFactor SlippageFactor187,188
+data SlippageFactor = SlippageFactor { unit unit187,188
+                                     , value value188,189
+instance FromJSON FromJSON SlippageFactor192,193
+data RollOverDetails RollOverDetails195,196
+data RollOverDetails = RollOverDetails RollOverDetails195,196
+data RollOverDetails = RollOverDetails { lastRolloverTime lastRolloverTime195,196
+                                       , settlementInfo settlementInfo196,197
+instance FromJSON FromJSON RollOverDetails200,201
+data MarketHours MarketHours204,205
+data MarketHours = MarketHours MarketHours204,205
+data MarketHours = MarketHours { openTime openTime204,205
+                               , closeTime closeTime205,206
+instance FromJSON FromJSON MarketHours209,210
+data UnitDimension UnitDimension213,214
+data UnitDimension = PERCENTAGEPERCENTAGE213,214
+                   | POINTSPOINTS214,215
+instance FromJSON FromJSON UnitDimension218,219
+data DepositBand DepositBand222,223
+data DepositBand = DepositBand DepositBand222,223
+data DepositBand = DepositBand { currency currency222,223
+                               , margin margin223,224
+                               , max max224,225
+                               , min min225,226
+instance FromJSON FromJSON DepositBand229,230
+data DealingRule DealingRule232,233
+data DealingRule = DealingRule DealingRule232,233
+data DealingRule = DealingRule { unit unit232,233
+                               , value value233,234
+instance FromJSON FromJSON DealingRule237,238
+data ExpiryDetails ExpiryDetails240,241
+data ExpiryDetails = ExpiryDetails ExpiryDetails240,241
+                                   settlementInfo settlementInfo241,242
+instance FromJSON FromJSON ExpiryDetails244,245
+data Currency Currency247,248
+data Currency = Currency Currency247,248
+data Currency = Currency { baseExchangeRate baseExchangeRate247,248
+                         , code code248,249
+                         , exchangeRate exchangeRate249,250
+                         , isDefault isDefault250,251
+                         , symbol symbol251,252
+instance FromJSON FromJSON Currency255,256
+data TrailingStopsPreference TrailingStopsPreference258,259
+data TrailingStopsPreference = AVAILABLEAVAILABLE258,259
+                             | NOT_AVAILABLENOT_AVAILABLE259,260
+instance FromJSON FromJSON TrailingStopsPreference263,264
+data MarketOrderPreference MarketOrderPreference266,267
+data MarketOrderPreference = AVAILABLE_DEFAULT_OFFAVAILABLE_DEFAULT_OFF266,267
+                           | AVAILABLE_DEFAULT_ONAVAILABLE_DEFAULT_ON267,268
+                           | MO_NOT_AVAILABLEMO_NOT_AVAILABLE268,269
+instance FromJSON FromJSON MarketOrderPreference272,273
+  parseJSON parseJSON274,275
+data HistoricalPrices HistoricalPrices282,283
+data HistoricalPrices = HistoricalPrices HistoricalPrices282,283
+data HistoricalPrices = HistoricalPrices { instrumentType instrumentType282,283
+                                         , metadata metadata283,284
+                                         , prices prices284,285
+instance FromJSON FromJSON HistoricalPrices288,289
+data HistoricalMetadata HistoricalMetadata291,292
+data HistoricalMetadata = HistoricalMetadata HistoricalMetadata291,292
+data HistoricalMetadata = HistoricalMetadata { pageData pageData291,292
+                                             , size size292,293
+                                             , allowance allowance293,294
+instance FromJSON FromJSON HistoricalMetadata297,298
+data PageData PageData300,301
+data PageData = PageData PageData300,301
+data PageData = PageData { pageNumber pageNumber300,301
+                         , pageSize pageSize301,302
+                         , totalPages totalPages302,303
+instance FromJSON FromJSON PageData306,307
+data DataAllowance DataAllowance309,310
+data DataAllowance = DataAllowance DataAllowance309,310
+data DataAllowance = DataAllowance { allowanceExpiry allowanceExpiry309,310
+                                   , remainingAllowance remainingAllowance310,311
+                                   , totalAllowance totalAllowance311,312
+instance FromJSON FromJSON DataAllowance315,316
+data HistoricalPrice HistoricalPrice318,319
+data HistoricalPrice = HistoricalPrice HistoricalPrice318,319
+data HistoricalPrice = HistoricalPrice { closePrice closePrice318,319
+                                       , highPrice highPrice319,320
+                                       , lastTradedVolume lastTradedVolume320,321
+                                       , lowPrice lowPrice321,322
+                                       , snapshotTimeUTC snapshotTimeUTC322,323
+instance FromJSON FromJSON HistoricalPrice326,327
+data PriceDatum PriceDatum329,330
+data PriceDatum = PriceDatum PriceDatum329,330
+data PriceDatum = PriceDatum { ask ask329,330
+                             , bid bid330,331
+                             , lastTraded lastTraded331,332
+instance FromJSON FromJSON PriceDatum335,336
+data Resolution Resolution338,339
+data Resolution = DAYDAY338,339
+                | HOURHOUR339,340
+                | HOUR_2HOUR_2340,341
+                | HOUR_3HOUR_3341,342
+                | HOUR_4HOUR_4342,343
+                | MINUTEMINUTE343,344
+                | MINUTE_10MINUTE_10344,345
+                | MINUTE_15MINUTE_15345,346
+                | MINUTE_2MINUTE_2346,347
+                | MINUTE_3MINUTE_3347,348
+                | MINUTE_30MINUTE_30348,349
+                | MINUTE_5MINUTE_5349,350
+                | MONTHMONTH350,351
+                | SECONDSECOND351,352
+                | WEEKWEEK352,353
+data HistoryOpts HistoryOpts355,356
+data HistoryOpts = HistoryOpts HistoryOpts355,356
+data HistoryOpts = HistoryOpts { from from355,356
+                               , to to356,357
+                               , max max357,358
+                               , pageSize pageSize358,359
+
+./src/IG/REST/Dealing/Types.hs,18807
+module IG.REST.Dealing.Types IG.REST.Dealing.Types5,6
+data DealConfirmation DealConfirmation16,17
+data DealConfirmation = DealConfirmation DealConfirmation16,17
+data DealConfirmation = DealConfirmation { date date16,17
+                                         , affectedDeals affectedDeals17,18
+                                         , dealId dealId18,19
+                                         , dealReference dealReference19,20
+                                         , dealStatus dealStatus20,21
+                                         , direction direction21,22
+                                         , epic epic22,23
+                                         , expiry expiry23,24
+                                         , guaranteedStop guaranteedStop24,25
+                                         , level level25,26
+                                         , limitDistance limitDistance26,27
+                                         , limitLevel limitLevel27,28
+                                         , profit profit28,29
+                                         , profitCurrency profitCurrency29,30
+                                         , reason reason30,31
+                                         , size size33,34
+                                         , status status34,35
+                                         , stopDistance stopDistance35,36
+                                         , stopLevel stopLevel36,37
+                                         , trailingStop trailingStop37,38
+instance FromJSON FromJSON DealConfirmation40,41
+data Deal Deal44,45
+data Deal = Deal Deal44,45
+data Deal = Deal { dealId dealId44,45
+                 , status status45,46
+instance FromJSON FromJSON Deal49,50
+  parseJSON parseJSON51,52
+data DealStatus DealStatus58,59
+data DealStatus = ACCEPTEDACCEPTED58,59
+                | REJECTEDREJECTED59,60
+instance FromJSON FromJSON DealStatus62,63
+data Status Status66,67
+data Status = AMENDEDAMENDED66,67
+            | DELETEDDELETED67,68
+            | FULLY_CLOSEDFULLY_CLOSED68,69
+            | OPENOPEN69,70
+            | OPENEDOPENED70,71
+            | PARTIALLY_CLOSEDPARTIALLY_CLOSED71,72
+instance FromJSON FromJSON Status74,75
+data Direction Direction79,80
+data Direction = BUYBUY79,80
+               | SELLSELL80,81
+instance FromJSON FromJSON Direction83,84
+instance ToJSON ToJSON Direction86,87
+data StatusReason StatusReason89,90
+data StatusReason = ACCOUNT_NOT_ENABLED_TO_TRADING ACCOUNT_NOT_ENABLED_TO_TRADING89,90
+                  | ATTACHED_ORDER_LEVEL_ERROR ATTACHED_ORDER_LEVEL_ERROR90,91
+                  | ATTACHED_ORDER_TRAILING_STOP_ERROR ATTACHED_ORDER_TRAILING_STOP_ERROR91,92
+                  | CANNOT_CHANGE_STOP_TYPE CANNOT_CHANGE_STOP_TYPE92,93
+                  | CANNOT_REMOVE_STOP CANNOT_REMOVE_STOP93,94
+                  | CLOSING_ONLY_TRADES_ACCEPTED_ON_THIS_MARKET CLOSING_ONLY_TRADES_ACCEPTED_ON_THIS_MARKET94,95
+                  | CONFLICTING_ORDER CONFLICTING_ORDER95,96
+                  | CONTACT_SUPPORT_INSTRUMENT_ERROR CONTACT_SUPPORT_INSTRUMENT_ERROR96,97
+                  | CR_SPACING CR_SPACING97,98
+                  | DUPLICATE_ORDER_ERROR DUPLICATE_ORDER_ERROR98,99
+                  | EXCHANGE_MANUAL_OVERRIDE EXCHANGE_MANUAL_OVERRIDE99,100
+                  | EXPIRY_LESS_THAN_SPRINT_MARKET_MIN_EXPIRY EXPIRY_LESS_THAN_SPRINT_MARKET_MIN_EXPIRY100,101
+                  | FINANCE_REPEAT_DEALING FINANCE_REPEAT_DEALING101,102
+                  | FORCE_OPEN_ON_SAME_MARKET_DIFFERENT_CURRENCY FORCE_OPEN_ON_SAME_MARKET_DIFFERENT_CURRENCY102,103
+                  | GENERAL_ERROR GENERAL_ERROR103,104
+                  | GOOD_TILL_DATE_IN_THE_PAST GOOD_TILL_DATE_IN_THE_PAST104,105
+                  | INSTRUMENT_NOT_FOUND INSTRUMENT_NOT_FOUND105,106
+                  | INSUFFICIENT_FUNDS INSUFFICIENT_FUNDS106,107
+                  | LEVEL_TOLERANCE_ERROR LEVEL_TOLERANCE_ERROR107,108
+                  | LIMIT_ORDER_WRONG_SIDE_OF_MARKET LIMIT_ORDER_WRONG_SIDE_OF_MARKET108,109
+                  | MANUAL_ORDER_TIMEOUT MANUAL_ORDER_TIMEOUT109,110
+                  | MARGIN_ERROR MARGIN_ERROR110,111
+                  | MARKET_CLOSED MARKET_CLOSED111,112
+                  | MARKET_CLOSED_WITH_EDITS MARKET_CLOSED_WITH_EDITS112,113
+                  | MARKET_CLOSING MARKET_CLOSING113,114
+                  | MARKET_NOT_BORROWABLE MARKET_NOT_BORROWABLE114,115
+                  | MARKET_OFFLINE MARKET_OFFLINE115,116
+                  | MARKET_ORDERS_NOT_ALLOWED_ON_INSTRUMENT MARKET_ORDERS_NOT_ALLOWED_ON_INSTRUMENT116,117
+                  | MARKET_PHONE_ONLY MARKET_PHONE_ONLY117,118
+                  | MARKET_ROLLED MARKET_ROLLED118,119
+                  | MARKET_UNAVAILABLE_TO_CLIENT MARKET_UNAVAILABLE_TO_CLIENT119,120
+                  | MAX_AUTO_SIZE_EXCEEDED MAX_AUTO_SIZE_EXCEEDED120,121
+                  | MINIMUM_ORDER_SIZE_ERROR MINIMUM_ORDER_SIZE_ERROR121,122
+                  | MOVE_AWAY_ONLY_LIMIT MOVE_AWAY_ONLY_LIMIT122,123
+                  | MOVE_AWAY_ONLY_STOP MOVE_AWAY_ONLY_STOP123,124
+                  | MOVE_AWAY_ONLY_TRIGGER_LEVEL MOVE_AWAY_ONLY_TRIGGER_LEVEL124,125
+                  | OPPOSING_DIRECTION_ORDERS_NOT_ALLOWED OPPOSING_DIRECTION_ORDERS_NOT_ALLOWED125,126
+                  | OPPOSING_POSITIONS_NOT_ALLOWED OPPOSING_POSITIONS_NOT_ALLOWED126,127
+                  | ORDER_DECLINED ORDER_DECLINED127,128
+                  | ORDER_LOCKED ORDER_LOCKED128,129
+                  | ORDER_NOT_FOUND ORDER_NOT_FOUND129,130
+                  | OVER_NORMAL_MARKET_SIZE OVER_NORMAL_MARKET_SIZE130,131
+                  | PARTIALY_CLOSED_POSITION_NOT_DELETED PARTIALY_CLOSED_POSITION_NOT_DELETED131,132
+                  | POSITION_ALREADY_EXISTS_IN_OPPOSITE_DIRECTION POSITION_ALREADY_EXISTS_IN_OPPOSITE_DIRECTION132,133
+                  | POSITION_NOT_AVAILABLE_TO_CANCEL POSITION_NOT_AVAILABLE_TO_CANCEL133,134
+                  | POSITION_NOT_AVAILABLE_TO_CLOSE POSITION_NOT_AVAILABLE_TO_CLOSE134,135
+                  | POSITION_NOT_FOUND POSITION_NOT_FOUND135,136
+                  | REJECT_CFD_ORDER_ON_SPREADBET_ACCOUNT REJECT_CFD_ORDER_ON_SPREADBET_ACCOUNT136,137
+                  | REJECT_SPREADBET_ORDER_ON_CFD_ACCOUNT REJECT_SPREADBET_ORDER_ON_CFD_ACCOUNT137,138
+                  | SIZE_INCREMENT SIZE_INCREMENT138,139
+                  | SPRINT_MARKET_EXPIRY_AFTER_MARKET_CLOSE SPRINT_MARKET_EXPIRY_AFTER_MARKET_CLOSE139,140
+                  | STOP_OR_LIMIT_NOT_ALLOWED STOP_OR_LIMIT_NOT_ALLOWED140,141
+                  | STOP_REQUIRED_ERROR STOP_REQUIRED_ERROR141,142
+                  | STRIKE_LEVEL_TOLERANCE STRIKE_LEVEL_TOLERANCE142,143
+                  | SUCCESS SUCCESS143,144
+                  | TRAILING_STOP_NOT_ALLOWED TRAILING_STOP_NOT_ALLOWED144,145
+                  | UNKNOWN UNKNOWN145,146
+                  | WRONG_SIDE_OF_MARKET WRONG_SIDE_OF_MARKET146,147
+                  | UNREADABLE UNREADABLE147,148
+instance FromJSON FromJSON StatusReason150,151
+data PositionData PositionData155,156
+data PositionData = PositionData PositionData155,156
+data PositionData = PositionData { position position155,156
+                                 , market market156,157
+instance FromJSON FromJSON PositionData159,160
+data Market Market162,163
+data Market = Market Market162,163
+data Market = Market { bid bid162,163
+                     , delayTime delayTime163,164
+                     , epic epic164,165
+                     , expiry expiry165,166
+                     , high high166,167
+                     , instrumentName instrumentName167,168
+                     , instrumentType instrumentType168,169
+                     , lotSize lotSize169,170
+                     , low low170,171
+                     , marketStatus marketStatus171,172
+                     , netChange netChange172,173
+                     , offer offer173,174
+                     , percentageChange percentageChange174,175
+                     , scalingFactor scalingFactor175,176
+                     , streamingPricesAvailable streamingPricesAvailable176,177
+                     , updateTimeUTC updateTimeUTC177,178
+instance FromJSON FromJSON Market181,182
+  parseJSON parseJSON182,183
+data MarketStatus MarketStatus202,203
+data MarketStatus = CLOSEDCLOSED202,203
+                  | EDITS_ONLYEDITS_ONLY203,204
+                  | OFFLINEOFFLINE204,205
+                  | ON_AUCTIONON_AUCTION205,206
+                  | ON_AUCTION_NO_EDITSON_AUCTION_NO_EDITS206,207
+                  | SUSPENDEDSUSPENDED207,208
+                  | TRADEABLETRADEABLE208,209
+instance FromJSON FromJSON MarketStatus211,212
+data Position Position214,215
+data Position = Position Position214,215
+data Position = Position { contractSize contractSize214,215
+                         , controlledRisk controlledRisk215,216
+                         , createdDateUTC createdDateUTC216,217
+                         , currency currency217,218
+                         , dealId dealId218,219
+                         , dealReference dealReference219,220
+                         , direction direction220,221
+                         , level level221,222
+                         , limitLevel limitLevel222,223
+                         , size size223,224
+                         , stopLevel stopLevel224,225
+                         , trailingStep trailingStep225,226
+                         , trailingStopDistance trailingStopDistance226,227
+instance FromJSON FromJSON Position229,230
+data PositionRequest PositionRequest233,234
+data PositionRequest = PositionRequest PositionRequest233,234
+data PositionRequest = PositionRequest { currencyCode currencyCode233,234
+                                       , dealReference dealReference234,235
+                                       , direction direction235,236
+                                       , epic epic236,237
+                                       , expiry expiry237,238
+                                       , forceOpen forceOpen238,239
+                                       , guaranteedStop guaranteedStop239,240
+                                       , level level240,241
+                                       , limitDistance limitDistance241,242
+                                       , limitLevel limitLevel242,243
+                                       , orderType orderType243,244
+                                       , quoteId quoteId244,245
+                                       , size size245,246
+                                       , stopLevel stopLevel246,247
+                                       , timeInForce timeInForce247,248
+                                       , trailingStop trailingStop248,249
+                                       , trailingStopIncrement trailingStopIncrement249,250
+instance ToJSON ToJSON PositionRequest252,253
+instance FromJSON FromJSON PositionRequest254,255
+data TimeInForce TimeInForce257,258
+data TimeInForce = FILL_OR_KILLFILL_OR_KILL257,258
+                 | EXECUTE_AND_ELIMINATEEXECUTE_AND_ELIMINATE258,259
+                 | GOOD_TILL_CANCELLED GOOD_TILL_CANCELLED259,260
+                 | GOOD_TILL_DATE GOOD_TILL_DATE260,261
+instance ToJSON ToJSON TimeInForce263,264
+instance FromJSON FromJSON TimeInForce265,266
+defaultPR defaultPR286,287
+type PositionReqBuilder PositionReqBuilder306,307
+setCurrencyCode setCurrencyCode308,309
+setDealReference setDealReference312,313
+setDirection setDirection316,317
+setEpic setEpic320,321
+setExpiry setExpiry324,325
+setForceOpen setForceOpen328,329
+setGuaranteedStop setGuaranteedStop332,333
+setLevel setLevel336,337
+setLimitDistance setLimitDistance340,341
+setLimitLevel setLimitLevel344,345
+setOrderType setOrderType348,349
+setQuoteId setQuoteId352,353
+setSize setSize356,357
+setStopLevel setStopLevel360,361
+setTimeInForce setTimeInForce364,365
+setTrailingStop setTrailingStop368,369
+setTrailingStopIncrement setTrailingStopIncrement372,373
+data OrderType OrderType377,378
+data OrderType = LIMIT LIMIT377,378
+               | MARKET MARKET381,382
+               | QUOTE QUOTE384,385
+               | STOP STOP388,389
+instance ToJSON ToJSON OrderType392,393
+instance FromJSON FromJSON OrderType395,396
+data DealReference DealReference400,401
+data DealReference = DealReference DealReference400,401
+data DealReference = DealReference { dealReference dealReference400,401
+instance FromJSON FromJSON DealReference403,404
+data PositionsResponse PositionsResponse406,407
+data PositionsResponse = PositionsResponse PositionsResponse406,407
+data PositionsResponse = PositionsResponse { positions positions406,407
+instance FromJSON FromJSON PositionsResponse409,410
+data ClosePositionRequestClosePositionRequest412,413
+  = ClosePositionRequest ClosePositionRequest413,414
+  = ClosePositionRequest { dealId dealId413,414
+                         , epic epic414,415
+                         , expiry expiry415,416
+                         , direction direction416,417
+                         , level level417,418
+                         , orderType orderType418,419
+                         , timeInForce timeInForce419,420
+                         , quoteId quoteId420,421
+                         , size size421,422
+instance ToJSON ToJSON ClosePositionRequest424,425
+data CloseOptions CloseOptions430,431
+data CloseOptions = CloseOptions CloseOptions430,431
+data CloseOptions = CloseOptions { level level430,431
+                                 , orderType orderType431,432
+                                 , timeInForce timeInForce432,433
+                                 , quoteId quoteId433,434
+                                 , size size434,435
+                                 , expiry expiry435,436
+                                 , epic epic436,437
+defaultCloseOptions defaultCloseOptions441,442
+data PositionUpdateRequest PositionUpdateRequest447,448
+data PositionUpdateRequest = PositionUpdateRequest PositionUpdateRequest447,448
+data PositionUpdateRequest = PositionUpdateRequest { limitLevel limitLevel447,448
+                                                   , stopLevel stopLevel448,449
+                                                   , trailingStop trailingStop449,450
+                                                   , trailingStopDistance trailingStopDistance450,451
+                                                   , trailingStopIncrement trailingStopIncrement451,452
+instance ToJSON ToJSON PositionUpdateRequest454,455
+data WorkingOrderData WorkingOrderData458,459
+data WorkingOrderData = WorkingOrderData WorkingOrderData458,459
+data WorkingOrderData = WorkingOrderData { marketData marketData458,459
+                                         , workingOrderData workingOrderData459,460
+instance FromJSON FromJSON WorkingOrderData462,463
+data WorkingOrdersResponse WorkingOrdersResponse465,466
+data WorkingOrdersResponse = WorkingOrdersResponse WorkingOrdersResponse465,466
+data WorkingOrdersResponse = WorkingOrdersResponse { workingOrders workingOrders465,466
+instance FromJSON FromJSON WorkingOrdersResponse469,470
+data WorkingOrder WorkingOrder472,473
+data WorkingOrder = WorkingOrder WorkingOrder472,473
+data WorkingOrder = WorkingOrder { createdDateUTC createdDateUTC472,473
+                                 , currencyCode currencyCode473,474
+                                 , dealId dealId474,475
+                                 , direction direction475,476
+                                 , dma dma476,477
+                                 , epic epic477,478
+                                 , goodTillDateISO goodTillDateISO478,479
+                                 , guaranteedStop guaranteedStop479,480
+                                 , limitDistance limitDistance480,481
+                                 , orderLevel orderLevel481,482
+                                 , orderSize orderSize482,483
+                                 , orderType orderType483,484
+                                 , stopDistance stopDistance484,485
+                                 , timeInForce timeInForce485,486
+instance FromJSON FromJSON WorkingOrder488,489
+data WorkingOrderRequest WorkingOrderRequest492,493
+data WorkingOrderRequest = WorkingOrderRequest WorkingOrderRequest492,493
+data WorkingOrderRequest = WorkingOrderRequest { currencyCode currencyCode492,493
+                                               , dealReference dealReference493,494
+                                               , direction direction494,495
+                                               , epic epic495,496
+                                               , expiry expiry496,497
+                                               , forceOpen forceOpen497,498
+                                               , goodTillDate goodTillDate498,499
+                                               , guaranteedStop guaranteedStop499,500
+                                               , level level500,501
+                                               , limitDistance limitDistance501,502
+                                               , limitLevel limitLevel502,503
+                                               , size size503,504
+                                               , stopDistance stopDistance504,505
+                                               , stopLevel stopLevel505,506
+                                               , timeInForce timeInForce506,507
+                                               , woType woType507,508
+instance ToJSON ToJSON WorkingOrderRequest510,511
+  toJSON toJSON511,512
+data WorkingOrderUpdate WorkingOrderUpdate530,531
+data WorkingOrderUpdate = WorkingOrderUpdate WorkingOrderUpdate530,531
+data WorkingOrderUpdate = WorkingOrderUpdate { goodTillDate goodTillDate530,531
+                                             , level level531,532
+                                             , limitDistance limitDistance532,533
+                                             , limitLevel limitLevel533,534
+                                             , stopDistance stopDistance534,535
+                                             , stopLevel stopLevel535,536
+                                             , timeInForce timeInForce536,537
+                                             , woType woType537,538
+instance ToJSON ToJSON WorkingOrderUpdate540,541
+  toJSON toJSON541,542
+
+./src/IG/REST/Accounts.hs,77
+module IG.REST.Accounts IG.REST.Accounts2,3
+getAccounts getAccounts15,16
+
+./src/IG/REST.hs,2436
+module IG.REST IG.REST3,4
+(<(</>)22,23
+restPathSegment restPathSegment26,27
+data AuthHeaders AuthHeaders32,33
+data AuthHeaders = AuthHeaders AuthHeaders32,33
+data AuthHeaders = AuthHeaders { cst cst32,33
+                               , securityToken securityToken33,34
+                               , apiToken apiToken34,35
+                               , isDemo isDemo35,36
+v1 v139,40
+v2 v243,44
+v3 v347,48
+buildHeaders buildHeaders51,52
+baseHeaders baseHeaders57,58
+apiRequest apiRequest68,69
+utcDateTimeFormat utcDateTimeFormat83,84
+formats formats86,87
+dateFormats dateFormats89,90
+data UTCDate UTCDate92,93
+data UTCDate = UTCDate UTCDate92,93
+instance FromJSON FromJSON UTCDate96,97
+  parseJSON parseJSON97,98
+instance ToJSON ToJSON UTCDate103,104
+  toJSON toJSON104,105
+newtype DealTime DealTime111,112
+instance FromJSON FromJSON DealTime116,117
+  parseJSON parseJSON118,119
+tryFormats tryFormats126,127
+data InstrumentExpiry InstrumentExpiry138,139
+data InstrumentExpiry = DFBDFB138,139
+                      | NoneNone139,140
+                      | Expires Expires140,141
+instance ToJSON ToJSON InstrumentExpiry143,144
+  toJSON toJSON145,146
+instance FromJSON FromJSON InstrumentExpiry149,150
+  parseJSON parseJSON151,152
+data InstrumentType InstrumentType162,163
+data InstrumentType = BINARY BINARY162,163
+                    | BUNGEE_CAPPED BUNGEE_CAPPED163,164
+                    | BUNGEE_COMMODITIES BUNGEE_COMMODITIES164,165
+                    | BUNGEE_CURRENCIES BUNGEE_CURRENCIES165,166
+                    | BUNGEE_INDICES BUNGEE_INDICES166,167
+                    | COMMODITIES COMMODITIES167,168
+                    | CURRENCIES CURRENCIES168,169
+                    | INDICES INDICES169,170
+                    | OPT_COMMODITIES OPT_COMMODITIES170,171
+                    | OPT_CURRENCIES OPT_CURRENCIES171,172
+                    | OPT_INDICES OPT_INDICES172,173
+                    | OPT_RATES OPT_RATES173,174
+                    | OPT_SHARES OPT_SHARES174,175
+                    | RATES RATES175,176
+                    | SECTORS SECTORS176,177
+                    | SHARES SHARES177,178
+                    | SPRINT_MARKET SPRINT_MARKET178,179
+                    | TEST_MARKET TEST_MARKET179,180
+                    | UNKNOWN UNKNOWN180,181
+instance FromJSON FromJSON InstrumentType183,184
+
+./src/Lib.hs,1037
+module Lib Lib4,5
+data TickField TickField18,19
+data TickField = TickField TickField18,19
+data TickField = TickField { timestamp1 timestamp118,19
+                           , bid bid19,20
+                           , offer offer20,21
+                           , mktstate mktstate21,22
+type Timestamp Timestamp24,25
+data MidPriceField MidPriceField25,26
+data MidPriceField = MidPriceField MidPriceField25,26
+data MidPriceField = MidPriceField { timestamp2 timestamp225,26
+                                   , mid mid26,27
+convertSpreadToMid convertSpreadToMid32,33
+convertTimestampToDateTime convertTimestampToDateTime37,38
+convertDateTimeToTimestamp convertDateTimeToTimestamp40,41
+convertDateTimeToTimestampString convertDateTimeToTimestampString43,44
+convertTimestampToString convertTimestampToString46,47
+showTime showTime49,50
+type Logger Logger53,54
+newLoggerQueue newLoggerQueue55,56
+createLogger createLogger58,59
+printLog printLog67,68
+logInfo logInfo83,84
+closeLog closeLog88,89
+
+./src/Broker.hs,1244
+module Broker Broker3,4
+data TradingEnvironment TradingEnvironment22,23
+data TradingEnvironment = Demo Demo22,23
+data TradingEnvironment = Demo | Live Live22,23
+createAuthHeaderTMVar createAuthHeaderTMVar24,25
+loginFirst loginFirst29,30
+data RealPosn RealPosn47,48
+data RealPosn = RealPosn RealPosn47,48
+data RealPosn = RealPosn { rpDealID rpDealID47,48
+                         , rpEpic rpEpic48,49
+                         , rpSize rpSize49,50
+                         , rpOpenLevel rpOpenLevel50,51
+                         , rpDir rpDir51,52
+                         , rpLastPrice rpLastPrice52,53
+                         , rpStopLevel rpStopLevel53,54
+                         , rpLotSize rpLotSize54,55
+                         , rpScalingFactor rpScalingFactor55,56
+                         , rpCcy rpCcy56,57
+                         , rpMktState rpMktState57,58
+emptyRealPosn emptyRealPosn59,60
+getAllPositions getAllPositions62,63
+convertPositionDataToRealPosn convertPositionDataToRealPosn80,81
+dealAtMarket dealAtMarket111,112
+getCurrentHour getCurrentHour144,145
+waitIfBetween10pm11pm waitIfBetween10pm11pm147,148
+closeRequest closeRequest158,159
+placeTrade placeTrade162,163
+
+./src/Backtest.hs,295
+module Backtest Backtest2,3
+generatePeriodToTest generatePeriodToTest41,42
+backtestOnePeriod backtestOnePeriod47,48
+backtestOnePeriod backtestOnePeriod55,56
+printDBTick printDBTick77,78
+loadDBIntoQueue loadDBIntoQueue80,81
+createQueue createQueue112,113
+backtest backtest115,116
+
+./src/Prelude.hs,27
+module PreludePrelude2,3
+
+./src/IG.hs,1891
+module IG IG3,4
+host host21,22
+productionPath productionPath27,28
+demoPath demoPath31,32
+type Epic Epic35,36
+data ApiError ApiError40,41
+data ApiError = AccountDisabled AccountDisabled40,41
+              | AllowanceExceeded AllowanceExceeded41,42
+              | ApiKeyAllowanceExceeded ApiKeyAllowanceExceeded42,43
+              | ApiKeyMissing ApiKeyMissing43,44
+              | ApiKeyRevoked ApiKeyRevoked44,45
+              | ApiKeyUnaccepted ApiKeyUnaccepted45,46
+              | BadPayload BadPayload46,47
+              | CannotUseApi CannotUseApi47,48
+              | CurrencyCodeRequired CurrencyCodeRequired48,49
+              | CredentialsMissing CredentialsMissing49,50
+              | DealNotFound DealNotFound50,51
+              | DisabledApiKey DisabledApiKey51,52
+              | EncryptionRequired EncryptionRequired52,53
+              | HistoricalAllowanceExceeded HistoricalAllowanceExceeded53,54
+              | InvalidAccountToken InvalidAccountToken54,55
+              | InvalidApiKey InvalidApiKey55,56
+              | InvalidClientToken InvalidClientToken56,57
+              | InvalidDetails InvalidDetails57,58
+              | InvalidDateRange InvalidDateRange58,59
+              | InvalidInput InvalidInput59,60
+              | InvalidOAuthToken InvalidOAuthToken60,61
+              | MissingAccountToken MissingAccountToken63,64
+              | MissingClientToken MissingClientToken64,65
+              | NeedPreferredAccount NeedPreferredAccount65,66
+              | SessionTimeout SessionTimeout66,67
+              | StockBrokingUnsupported StockBrokingUnsupported67,68
+              | TradingAllowanceExceeded TradingAllowanceExceeded68,69
+              | UnknownError UnknownError69,70
+apiError apiError73,74
+decodeError decodeError81,82
+findError findError87,88
+errorMap errorMap98,99
+
+./src/Security.hs,163
+module Security Security2,3
+spread spread8,9
+multiplier multiplier16,17
+currency currency22,23
+mapEpic mapEpic30,31
+inverseMapEpic inverseMapEpic42,43
+
+./src/PointNFigure.hs,6141
+module PointNFigure PointNFigure5,6
+data RisingFalling RisingFalling26,27
+data RisingFalling = Rising Rising26,27
+data RisingFalling = Rising | Falling Falling26,27
+data PFColumn PFColumn28,29
+data PFColumn = PFColumn PFColumn28,29
+data PFColumn = PFColumn { columnIndex columnIndex28,29
+                         , dir dir29,30
+                         , high high30,31
+                         , low low31,32
+                         , supportLine supportLine32,33
+                         , resistanceLine resistanceLine33,34
+                         , trendLineUp trendLineUp34,35
+                         , trendLineDn trendLineDn35,36
+                         , tradeOpen tradeOpen36,37
+                         , tradeClose tradeClose37,38
+                         , colTimestampStart colTimestampStart38,39
+                         , colTimestampEnd colTimestampEnd39,40
+data PFSignalTimestamp PFSignalTimestamp44,45
+data PFSignalTimestamp = PFSignalTimestamp PFSignalTimestamp44,45
+data PFSignalTimestamp = PFSignalTimestamp { pfSignal pfSignal44,45
+                                           , pfPrice pfPrice45,46
+instance Show Show PFSignalTimestamp48,49
+  show show49,50
+emptySignalTS emptySignalTS54,55
+data PointAndFigureSettings PointAndFigureSettings60,61
+data PointAndFigureSettings = PointAndFigureSettings PointAndFigureSettings60,61
+data PointAndFigureSettings = PointAndFigureSettings { blockSize blockSize60,61
+                                                     , reversalSize reversalSize61,62
+                                                     , secName secName62,63
+data PFChart PFChart65,66
+data PFChart = PFChart PFChart65,66
+data PFChart = PFChart { chartSettings chartSettings65,66
+                       , chartValues chartValues66,67
+                       , chartColumnCount chartColumnCount67,68
+                       , chartPriceMin chartPriceMin68,69
+                       , chartPriceMax chartPriceMax69,70
+                       , startTimestamp startTimestamp70,71
+                       , endTimestamp endTimestamp71,72
+roundPF roundPF76,77
+emptyPFChartSettings emptyPFChartSettings81,82
+emptyPFChart emptyPFChart83,84
+emptyPFChartM emptyPFChartM85,86
+updatePFChartM updatePFChartM89,90
+updatePFChart updatePFChart92,93
+updateAndAnalysePFChart updateAndAnalysePFChart130,131
+analyseAndAppendColumn analyseAndAppendColumn191,192
+keepLastNCols keepLastNCols196,197
+maximaPF maximaPF207,208
+countExtrema countExtrema212,213
+colExtremaEquals colExtremaEquals216,217
+analysePFChart analysePFChart222,223
+analysePFColumn analysePFColumn227,228
+showPFChart showPFChart260,261
+roundToNDecPlaces roundToNDecPlaces264,265
+printPFChartPlain printPFChartPlain267,268
+printPFChartColour printPFChartColour286,287
+getPFColDisplayVal getPFColDisplayVal308,309
+getPFColDisplayValText getPFColDisplayValText328,329
+lookForSignal lookForSignal349,350
+data PFSignal PFSignal409,410
+data PFSignal  = PFSell PFSell409,410
+               | PFBullTrap PFBullTrap410,411
+               | PFNBottomBreakdown PFNBottomBreakdown411,412
+               | PFHighPoleReversal PFHighPoleReversal412,413
+               | PFUpTrendBreak PFUpTrendBreak413,414
+               | PFResistanceBreakup PFResistanceBreakup414,415
+               | PFNoSignal PFNoSignal416,417
+               | PFSupportBreakdown PFSupportBreakdown418,419
+               | PFDownTrendBreak PFDownTrendBreak419,420
+               | PFBuy PFBuy420,421
+               | PFLowPoleReversal PFLowPoleReversal421,422
+               | PFBearTrap PFBearTrap422,423
+data PaperTradeState PaperTradeState426,427
+data PaperTradeState = TradeShortClosed TradeShortClosed426,427
+data PaperTradeState = TradeShortClosed | TradeShortOpen TradeShortOpen426,427
+data PaperTradeState = TradeShortClosed | TradeShortOpen | NoTrade NoTrade426,427
+data PaperTradeState = TradeShortClosed | TradeShortOpen | NoTrade | TradeLongOpen TradeLongOpen426,427
+data PaperTradeState = TradeShortClosed | TradeShortOpen | NoTrade | TradeLongOpen | TradeLongClosed TradeLongClosed426,427
+data PaperTrade PaperTrade428,429
+data PaperTrade = PaperTrade PaperTrade428,429
+data PaperTrade = PaperTrade { paperTradeState paperTradeState428,429
+                             , openSignal openSignal429,430
+                             , closeSignal closeSignal430,431
+                             , size size431,432
+                             , pnl pnl432,433
+isPaperTradeClosed isPaperTradeClosed438,439
+showPaperTradeColour showPaperTradeColour442,443
+showPaperTradePlain showPaperTradePlain449,450
+showSignalTimestamp showSignalTimestamp456,457
+printPaperTrades printPaperTrades461,462
+printSignals printSignals464,465
+writePaperTradesToFile writePaperTradesToFile471,472
+emptyTrade emptyTrade478,479
+type SecurityID SecurityID481,482
+checkForNewTrade checkForNewTrade484,485
+evalPaperTradeSignals evalPaperTradeSignals492,493
+data StatsReport StatsReport518,519
+data StatsReport = StatsReport StatsReport518,519
+data StatsReport = StatsReport { tradeCount tradeCount518,519
+                               , wins wins519,520
+                               , losses losses520,521
+                               , winPnL winPnL521,522
+                               , lossPnL lossPnL522,523
+                               , cumPnL cumPnL523,524
+                               , maxDrawDown maxDrawDown524,525
+                               , maxLoss maxLoss525,526
+                               , maxGain maxGain526,527
+emptyStatsReport emptyStatsReport528,529
+countStats countStats531,532
+initialiseChartMap initialiseChartMap558,559
+getChartFromMap getChartFromMap562,563
+getBlockSizeFromChartMap getBlockSizeFromChartMap567,568
+initPaperPosnMap initPaperPosnMap574,575
+getPaperPosn getPaperPosn578,579
+storePaperPosn storePaperPosn583,584
+updateChartMap updateChartMap586,587
+getSigSeqFromMap getSigSeqFromMap595,596
+pushNewSignal pushNewSignal604,605
+
+./src/SpockServer.hs,73
+module SpockServer SpockServer0,1
+runSpockServer runSpockServer13,14
+
+./app/Main.hs,424
+module Main Main0,1
+data CliOptions CliOptions25,26
+data CliOptions = CliOptions CliOptions25,26
+  realtimeFlag realtimeFlag26,27
+data Command Command37,38
+data Command = Backtest Backtest37,38
+data Command = Backtest | Realtime Realtime37,38
+cliOptionsParser cliOptionsParser39,40
+defineCliOptions defineCliOptions59,60
+main main65,66
+callRealtime callRealtime97,98
+callBacktest callBacktest113,114
+
+./test/Spec.hs,104
+main main10,11
+tests tests32,33
+unitTests unitTests36,37
+setupTestChart1 setupTestChart1353,354
+
+./Setup.hs,15
+main main1,2
